@@ -9,8 +9,6 @@ LinkedList::LinkedList() {
 }
 
 LinkedList::LinkedList(int * newArray, int size) {
-    std::cout << "parameter constructor" << std::endl;
-
     Node * ptr = new Node();
     ptr->setData(newArray[0]);
     head = ptr;
@@ -37,8 +35,6 @@ void LinkedList::addFront(int newItem) {
 }
 
 void LinkedList::addEnd(int newItem) {
-    std::cout << "add end" << std::endl;
-
     Node * temp = new Node(newItem, nullptr);
 
     if (this->isEmpty()) {
@@ -55,8 +51,6 @@ void LinkedList::addEnd(int newItem) {
 }
 
 void LinkedList::addAtPosition(int position, int newItem) {
-    std::cout << "add at position" << std::endl;
-
     if (this->isEmpty()) {
         head = new Node(newItem, nullptr);
         return;
@@ -88,8 +82,6 @@ void LinkedList::addAtPosition(int position, int newItem) {
 }
 
 int LinkedList::search(int item) {
-    std::cout << "search" << std::endl;
-
     int found = 0;
 
     int count = 1;
@@ -103,13 +95,10 @@ int LinkedList::search(int item) {
         count++;
     }
 
-    std::cout << found << " " << std::endl;
     return found;
 }
 
 void LinkedList::deleteFront() {
-    std::cout << "delete front" << std::endl;
-    
     if (this->isEmpty()) {
         std::cout << "empty" << std::endl;
         return;
@@ -121,8 +110,6 @@ void LinkedList::deleteFront() {
 }
 
 void LinkedList::deleteEnd() {
-    std::cout << "delete end" << std::endl;
-    
     if (this->isEmpty()) {
         std::cout << "empty" << std::endl;
         return;
@@ -140,8 +127,6 @@ void LinkedList::deleteEnd() {
 }
 
 void LinkedList::deletePosition(int position) {
-    std::cout << "delete position" << std::endl;
-
     if (this->isEmpty()) {
         std::cout << "empty" << std::endl;
         return;
@@ -174,7 +159,6 @@ void LinkedList::deletePosition(int position) {
 }
 
 int LinkedList::getItem(int position) {
-    std::cout << "get item" << std::endl;
     int outOfRange = std::numeric_limits < int >::max();
     if (position < 1) {
         std::cout << outOfRange << std::endl;
@@ -197,13 +181,11 @@ int LinkedList::getItem(int position) {
         return outOfRange;
     }
 
-    std::cout << get->getData() << " " << std::endl;
+    std::cout << get->getData() << " ";
     return get->getData();
 }
 
 void LinkedList::printItems() {
-    std::cout << "print" << std::endl;
-    
     if (this->isEmpty()) {
         std::cout << "empty" << std::endl;
         return;
