@@ -28,8 +28,6 @@ bool LinkedList::isEmpty() {
 }
 
 void LinkedList::addFront(int newItem) {
-    std::cout << "add front" << std::endl;
-
     Node * temp = new Node(newItem, head);
     head = temp;
 }
@@ -100,7 +98,6 @@ int LinkedList::search(int item) {
 
 void LinkedList::deleteFront() {
     if (this->isEmpty()) {
-        std::cout << "empty" << std::endl;
         return;
     }
 
@@ -111,7 +108,6 @@ void LinkedList::deleteFront() {
 
 void LinkedList::deleteEnd() {
     if (this->isEmpty()) {
-        std::cout << "empty" << std::endl;
         return;
     }
 
@@ -128,7 +124,6 @@ void LinkedList::deleteEnd() {
 
 void LinkedList::deletePosition(int position) {
     if (this->isEmpty()) {
-        std::cout << "empty" << std::endl;
         return;
     }
 
@@ -161,7 +156,7 @@ void LinkedList::deletePosition(int position) {
 int LinkedList::getItem(int position) {
     int outOfRange = std::numeric_limits < int >::max();
     if (position < 1) {
-        std::cout << outOfRange << std::endl;
+        std::cout << outOfRange << " ";
         return outOfRange;
     }
 
@@ -177,7 +172,7 @@ int LinkedList::getItem(int position) {
     }
 
     if (get == nullptr) {
-        std::cout << outOfRange << std::endl;
+        std::cout << outOfRange << " ";
         return outOfRange;
     }
 
@@ -187,7 +182,6 @@ int LinkedList::getItem(int position) {
 
 void LinkedList::printItems() {
     if (this->isEmpty()) {
-        std::cout << "empty" << std::endl;
         return;
     }
 
@@ -199,4 +193,11 @@ void LinkedList::printItems() {
     std::cout << std::endl;
 }
 
-LinkedList::~LinkedList() {}
+LinkedList::~LinkedList() {
+    Node * ptr = head;
+    while (ptr != nullptr) {
+        temp = ptr;
+        ptr = ptr->getNext();
+        delete temp;
+    }
+}
