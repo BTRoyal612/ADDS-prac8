@@ -195,6 +195,7 @@ void LinkedList::printItems() {
 
 LinkedList::~LinkedList() {
     Node * ptr = head;
+    Node * temp;
     while (ptr != nullptr) {
         temp = ptr;
         ptr = ptr->getNext();
