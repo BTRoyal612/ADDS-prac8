@@ -9,13 +9,11 @@ LinkedList::LinkedList() {
 }
 
 LinkedList::LinkedList(int * newArray, int size) {
-    Node * ptr = new Node();
-    ptr->setData(newArray[0]);
+    Node * ptr = new Node(newArray[0], nullptr);
     head = ptr;
 
     for (int i = 1; i < size; i++) {
-        Node * temp = new Node();
-        temp->setData(newArray[i]);
+        Node * temp = new Node(newArray[i], nullptr);
         ptr->setNext(temp);
         ptr = temp;
     }
@@ -46,6 +44,7 @@ void LinkedList::addEnd(int newItem) {
     }
 
     ptr->setNext(temp);
+    return;
 }
 
 void LinkedList::addAtPosition(int position, int newItem) {
@@ -77,6 +76,7 @@ void LinkedList::addAtPosition(int position, int newItem) {
 
     Node * temp = new Node(newItem, add->getNext());
     add->setNext(temp);
+    return;
 }
 
 int LinkedList::search(int item) {
@@ -93,6 +93,7 @@ int LinkedList::search(int item) {
         count++;
     }
 
+    std::cout << found << " " << std::endl;
     return found;
 }
 
@@ -104,6 +105,7 @@ void LinkedList::deleteFront() {
     Node * ptr = head;
     head = head->getNext();
     delete ptr;
+    return;
 }
 
 void LinkedList::deleteEnd() {
@@ -120,6 +122,7 @@ void LinkedList::deleteEnd() {
 
     ptr->setNext(nullptr);
     delete end;
+    return;
 }
 
 void LinkedList::deletePosition(int position) {
@@ -151,6 +154,7 @@ void LinkedList::deletePosition(int position) {
     Node * temp = del->getNext();
     del->setNext(temp->getNext());
     delete(temp);
+    return;
 }
 
 int LinkedList::getItem(int position) {
